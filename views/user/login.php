@@ -7,8 +7,8 @@
         die("<strong>Le login et le mot de passe sont nécessaires pour se connecter à l'espace Administrateur.</strong>");
     }
 
-    $pseudo = filter_input(INPUT_POST, 'login_user', FILTER_SANITIZE_STRING);
-    $password = filter_input(INPUT_POST, 'password_user', FILTER_SANITIZE_STRING);
+    $pseudo = filter_input(INPUT_POST, 'login_user');
+    $password = filter_input(INPUT_POST, 'password_user');
 
     try {
         $query = $mysqlClient->prepare('SELECT * FROM utilisateur WHERE login_user = :login_user LIMIT 1');
